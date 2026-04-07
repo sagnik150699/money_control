@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sagnik150699/Sagnik-Bhattacharya/master/public/sagnik-bhattacharya.png" alt="Sagnik Bhattacharya" width="180">
+</p>
+Website: [sagnikbhattacharya.com](https://sagnikbhattacharya.com)
+
 # money_control
 It's designed to provide an intuitive budget tracking experience for users and offer a comprehensive introduction to Flutter development for students by Sagnik Bhattacharya.
 ## Instructions:
