@@ -22,7 +22,7 @@ dependencies:
   firebase_analytics:
   logger:
   flutter_hooks:
-  hooks_riverpod:
+  hooks_riverpod: ">=2.4.3 <3.0.0"
   google_sign_in: ^6.1.6
   google_fonts: ^8.0.2
   url_strategy:

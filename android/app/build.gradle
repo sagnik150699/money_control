@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.codingliquids.money_control"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 36
     ndkVersion flutter.ndkVersion
 
     compileOptions {
