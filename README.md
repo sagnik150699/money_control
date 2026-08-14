@@ -4,6 +4,13 @@
 Website: [sagnikbhattacharya.com](https://sagnikbhattacharya.com)
 
 # money_control
+
+## Course
+
+This project is part of **The Complete Flutter Course: Build Android, iOS, and Web apps**.
+
+[View the course on Coding Liquids](https://www.codingliquids.com/courses/Flutter-Course-Learn-to-Build-Android-iOS-and-Web-apps-637b978ee4b08f9aaa22d2cb)
+
 It's designed to provide an intuitive budget tracking experience for users and offer a comprehensive introduction to Flutter development for students by Sagnik Bhattacharya.
 ## Instructions:
 1. Connect with your credentials of Firebase from the lecture "Connect Firebase to Flutter project using CLI"
