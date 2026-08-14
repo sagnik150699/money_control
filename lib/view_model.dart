@@ -17,6 +17,9 @@ final authStateProvider = StreamProvider<User?>((ref) {
 
 class ViewModel extends ChangeNotifier {
   final _auth = FirebaseAuth.instance;
+  static final GoogleSignIn _googleSignIn = GoogleSignIn.instance;
+  static final Future<void> _googleSignInInitialization =
+      _googleSignIn.initialize();
   CollectionReference userCollection =
       FirebaseFirestore.instance.collection('users');
   Logger logger = Logger();
@@ -79,22 +82,24 @@ class ViewModel extends ChangeNotifier {
   }
 
   Future<void> signInWithGoogleMobile(BuildContext context) async {
-    final GoogleSignInAccount? googleUser =
-        await GoogleSignIn().signIn().onError((error, stackTrace) => DialogBox(
-              context,
-              error.toString().replaceAll(RegExp('\\[.*?\\]'), ''),
-            ));
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
-
-    final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
-
-    await _auth.signInWithCredential(credential).then((value) {
+    try {
+      await _googleSignInInitialization;
+      final googleUser = await _googleSignIn.authenticate();
+      final googleAuth = googleUser.authentication;
+      final credential = GoogleAuthProvider.credential(
+        idToken: googleAuth.idToken,
+      );
+      await _auth.signInWithCredential(credential);
       logger.e("Signed in successfully");
-    }).onError((error, stackTrace) {
+    } catch (error) {
       logger.d(error);
-    });
+      if (context.mounted) {
+        DialogBox(
+          context,
+          error.toString().replaceAll(RegExp('\\[.*?\\]'), ''),
+        );
+      }
+    }
   }
 
   void calculate() {
